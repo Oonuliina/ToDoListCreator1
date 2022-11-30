@@ -3,6 +3,13 @@
 
 /** Ionic CSS Variables **/
 :root {
+ 
+ ion-content {
+     background: url('../assets/taustakuva.jpg');
+     background-size: cover;
+     background-position: 50%;
+ }
+
   /** primary **/
   --ion-color-primary: #3880ff;
   --ion-color-primary-rgb: 56, 128, 255;
@@ -153,7 +160,7 @@
    */
 
   .ios body {
-    --ion-background-color: #000000;
+    --ion-background-color: none;
     --ion-background-color-rgb: 0,0,0;
 
     --ion-text-color: #ffffff;
@@ -233,4 +240,7 @@
 
     --ion-card-background: #1e1e1e;
   }
+  
+
 }
+
