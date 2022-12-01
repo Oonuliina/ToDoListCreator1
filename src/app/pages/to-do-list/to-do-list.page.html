@@ -1,9 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>toDoList</ion-title>
+      <ion-buttons slot="start">
+        <ion-back-button default-href="#"></ion-back-button>
+      </ion-buttons>
+      <ion-buttons slot="end">
+        <ion-icon name="person-circle-outline"></ion-icon>
+      </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
+<ion-content [fullscreen]="true" class="ion-padding">
+    <h3>To-Do List</h3>
 </ion-content>

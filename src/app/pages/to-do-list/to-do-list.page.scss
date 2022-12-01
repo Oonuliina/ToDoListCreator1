@@ -1,0 +1,27 @@
+ion-toolbar {
+  --opacity: 0;
+}
+
+ion-content {
+    position: absolute;
+    top: 0;
+}
+
+ion-icon {
+    font-size: 40px;
+}
+
+.background-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background: url('../../../assets/taustakuva.jpg');
+    background-size: cover;
+    background-position: 50%;
+} 
+
+h3 {
+    text-align: center;
+    font-family: Pacifico;
+    font-size: 55px;
+}
