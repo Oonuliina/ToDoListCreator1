@@ -1,12 +1,62 @@
  ion-content {
    --ion-background-color: #fff;
+   min-height: 100%;
+
+
+    .background-container {
+
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        background: url('../../../assets/taustakuva.jpg');
+        background-size: cover;
+        background-position: 50%;
+      } 
+
+
+      #login {
+          text-align: center;
+          font-size: 60px;
+          width: 100%;
+          height: 300px;
+          padding-top: 50px;
+          margin-bottom: 50px;
+      }
+  
+  .middle {
+      padding: 20px;
+      background-color: rgb(12, 10, 10);
+
+      .box{
+          border-radius: 10px;
+          height: auto;
+          background: rgb(234, 159, 159);
+          padding: 20px;
+          opacity: 0,5;
+
+          p{
+              text-align: center;
+          }
+          .input-box{
+              border-radius: 13px;
+          }
+          #forgotPassword {
+              font-size: 13px;
+              text-align: end;
+          }
+          .btn{
+              display: flex;
+              justify-content: center;
+              border-radius: 13px;
+
+              ion-button{
+                  --background:violet;
+              }
+          }
+      }
+  }
+
+
 }
 
-.background-container {
-    height: 100vh;
-    width: 100%;
-    display: flex;
-    background: url('../../../assets/taustakuva.jpg');
-    background-size: cover;
-    background-position: 50%;
-} 
+
