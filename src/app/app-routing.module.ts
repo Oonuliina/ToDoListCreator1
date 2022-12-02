@@ -25,9 +25,11 @@ const routes: Routes = [
     ...canActivate(redirectUnauthorizedToLogin)
   },
   {
-    path: '',
-    redirectTo: 'login-page',
     pathMatch: 'full'
+    path: '**',
+    redirectTo: '',
+    pathMatch: 'full',
+    
   },
   {
     path: 'splash-screen',

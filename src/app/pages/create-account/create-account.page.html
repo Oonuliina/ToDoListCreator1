@@ -6,6 +6,7 @@
     <div class="box">
       <form>
         <ion-avatar (click)="changeImage()"></ion-avatar>
+        <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" />
         <ng-template #placeholder_avatar>
           <div class="fallback">
             <ion-icon name="person-outline"></ion-icon>

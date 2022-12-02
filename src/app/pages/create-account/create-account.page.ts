@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { Router } from '@angular/router';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { AuthService } from 'src/app/services/auth.service';
@@ -12,6 +13,7 @@ import { AvatarService } from 'src/app/services/avatar.service';
 })
 export class CreateAccountPage implements OnInit {
   credentials!: FormGroup;
+  profile = null;
 
   type: boolean =true;
 //A few services injected
@@ -22,7 +24,11 @@ export class CreateAccountPage implements OnInit {
     private alertController: AlertController,
     private authService: AuthService,
     private router: Router
-  ) {}
+  ) {
+    this.avatarService.getUserProfile().subscribe((data) => {
+			this.profile = data;
+		});
+  }
 
   // Easy access for form fields
   get email() {
@@ -61,7 +67,31 @@ export class CreateAccountPage implements OnInit {
   changeType() {
     this.type =!this.type;
   }
-  changeImage() {
-    
-  }
+
+  async changeImage() {
+		const image = await Camera.getPhoto({
+			quality: 90,
+			allowEditing: false,
+			resultType: CameraResultType.Base64,
+			source: CameraSource.Photos // Camera, Photos or Prompt!
+		});
+
+		if (image) {
+			const loading = await this.loadingController.create();
+			await loading.present();
+
+			const result = await this.avatarService.uploadImage(image);
+			loading.dismiss();
+
+			if (!result) {
+				const alert = await this.alertController.create({
+					header: 'Upload failed',
+					message: 'There was a problem uploading your avatar.',
+					buttons: ['OK']
+				});
+				await alert.present();
+			}
+		}
+	}
 }
+
